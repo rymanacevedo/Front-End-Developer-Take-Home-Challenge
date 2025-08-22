@@ -1,40 +1,59 @@
-# Developer-Take-Home-Challenge
+# BunXAngular
 
-As the next step in the interview process, we’d like you to complete a take home challenge.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.0.
 
-**The Project**
+## Development server
 
-Let's assume that _data.json_ contains API responses we want to present to a Ground Resources Management (GRM) operator. Every day, GRM operators work with data similar to what you'll find in the provided JSON file. The task is to create a dashboard presenting data found within the provided JSON file in a clear and intuitive manner.
-Please feel free to peruse the Astro UX Design site (https://astrouxds.com/) for ideas or inspiration.
+To start a local development server, run:
 
-**Requirements**
+```bash
+ng serve
+```
 
-The data.json file consists of a list of contacts (satellites) and any alerts associated with them configured in a GRM application. Contacts can have properties such as name, status, state, etc. Any alerts the contact has will have the properties errorId, errorSeverity, etc.
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-- For each alert, I need to know the following:
-  - Alert message (_errorMessage_)
-  - Contact name (_contactName_)
-  - Contact time (_contactBeginTimestamp_ - _contactEndTimestamp_)
-- I need to be able to see the details of an alert by clicking on a button called _Show Details_ that utilizes `rux-dialog` to show the _contactSatellite_ and _contactDetail_ values
-- I need the alerts to be sorted by error time with the most recent at the top (_errorTime_)
-- I need to know which alerts I have already acknowledged so that I don’t process the same alert multiple times by mistake. Also once I’ve dealt with an alert, make it clear it’s not something I need to pay attention to again:
-- Only unacknowledged alerts can be acknowledged
-- Acknowledged alerts cannot be unacknowledged
-- Acknowledged alerts must be visually distinct from unacknowledged alerts
-- I want to be able to view alerts by their severity as well so that I can prioritize acknowledging the more severe alerts first.
+## Code scaffolding
 
-**Technical Requirements**
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-- This project should be done using React.
-- This project should make use of the [Astro component library.](https://astro-components.netlify.app/)
-- You are free to use any third-party libraries.
-- Please feel free to reach out via email to our recruiter if you have any questions.
-- Steps to follow:
-  - Fork this repository
-  - Work on your solution
-  - Create a pull request with @github/cskerbo as the reviewer, if available.
-- Have fun and be as creative as you like!
+```bash
+ng generate component component-name
+```
 
-**Timeframe**
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-We would like the take home challenge to be completed within 3 days. If you need more time, please reach out to us. You will not be judged on how quickly you complete the challenge.
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
