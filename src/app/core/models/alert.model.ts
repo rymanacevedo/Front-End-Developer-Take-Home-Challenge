@@ -1,4 +1,3 @@
-
 /*
  * Data Transformation Strategy:
  *
@@ -24,22 +23,22 @@
  * Represents the severity level of an alert.
  * Based on the unique values observed in `data.json`.
  */
-export type AlertSeverity = 'critical' | 'serious' | 'warning' | 'caution' | 'info';
+export type AlertSeverity = 'critical' | 'serious' | 'warning' | 'caution' | 'info'
 
 /**
  * Interface for a raw alert object, as received from the data source.
  * This corresponds to an entry in the `alerts` array within a `RawContact`.
  */
 export interface RawAlert {
-  errorId: string;
-  errorSeverity: AlertSeverity;
-  errorCategory: string;
-  errorMessage: string;
-  longMessage: string;
-  errorTime: number; // Milliseconds Unix timestamp
-  selected: boolean;
-  new: boolean;
-  expanded: boolean;
+  errorId: string
+  errorSeverity: AlertSeverity
+  errorCategory: string
+  errorMessage: string
+  longMessage: string
+  errorTime: number // Milliseconds Unix timestamp
+  selected: boolean
+  new: boolean
+  expanded: boolean
 }
 
 /**
@@ -47,25 +46,25 @@ export interface RawAlert {
  * This represents the top-level objects in the `data.json` array.
  */
 export interface RawContact {
-  _id: string;
-  contactId: string;
-  contactStatus: string;
-  contactName: number;
-  contactGround: string;
-  contactSatellite: string;
-  contactEquipment: string;
-  contactState: string;
-  contactStep: string;
-  contactDetail: string;
-  contactBeginTimestamp: number; // Seconds Unix timestamp
-  contactEndTimestamp: number; // Seconds Unix timestamp
-  contactLatitude: number;
-  contactLongitude: number;
-  contactAzimuth: number;
-  contactElevation: number;
-  contactResolution: string;
-  contactResolutionStatus: string;
-  alerts: RawAlert[];
+  _id: string
+  contactId: string
+  contactStatus: string
+  contactName: number
+  contactGround: string
+  contactSatellite: string
+  contactEquipment: string
+  contactState: string
+  contactStep: string
+  contactDetail: string
+  contactBeginTimestamp: number // Seconds Unix timestamp
+  contactEndTimestamp: number // Seconds Unix timestamp
+  contactLatitude: number
+  contactLongitude: number
+  contactAzimuth: number
+  contactElevation: number
+  contactResolution: string
+  contactResolutionStatus: string
+  alerts: RawAlert[]
 }
 
 /**
@@ -75,20 +74,20 @@ export interface RawContact {
  */
 export interface AlertViewModel {
   // From RawAlert
-  errorId: string;
-  errorSeverity: AlertSeverity;
-  errorCategory: string;
-  errorMessage: string;
-  longMessage: string;
-  errorTime: number; // Milliseconds Unix timestamp
+  errorId: string
+  errorSeverity: AlertSeverity
+  errorCategory: string
+  errorMessage: string
+  longMessage: string
+  errorTime: number // Milliseconds Unix timestamp
 
   // From RawContact (parent)
-  contactName: number;
-  contactBeginTimestamp: number; // Seconds Unix timestamp
-  contactEndTimestamp: number; // Seconds Unix timestamp
-  contactSatellite: string;
-  contactDetail: string;
+  contactName: number
+  contactBeginTimestamp: number // Seconds Unix timestamp
+  contactEndTimestamp: number // Seconds Unix timestamp
+  contactSatellite: string
+  contactDetail: string
 
   // UI state
-  acknowledged: boolean;
+  acknowledged: boolean
 }
