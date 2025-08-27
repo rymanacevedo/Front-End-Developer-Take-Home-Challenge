@@ -102,4 +102,8 @@ export class AlertService {
     const storedIds = localStorage.getItem(this.localStorageKey)
     return storedIds ? JSON.parse(storedIds) : []
   }
+
+  retryLoad(): void {
+    this.loadInitialData()
+  }
 }

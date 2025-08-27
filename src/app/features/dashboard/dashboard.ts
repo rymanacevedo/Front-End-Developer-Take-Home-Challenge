@@ -93,4 +93,8 @@ export class DashboardComponent implements OnInit {
       this.selectedSeverity.set(selectedFilter.value);
     }
   }
+
+  retry(): void {
+    this.alertService.retryLoad();
+  }
 }
