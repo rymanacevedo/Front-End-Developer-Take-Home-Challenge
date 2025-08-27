@@ -11,18 +11,20 @@
         <rux-progress [value]="progress$ | async"></rux-progress>
       </div>
     } @else {
-      <div class="filter-controls">
-        <rux-segmented-button
-          [data]="severityFilters"
-          (ruxchange)="onSeverityFilterChanged($any($event))"
-        ></rux-segmented-button>
-      </div>
+      <div class="table-container">
+        <div class="filter-controls">
+          <rux-segmented-button
+            [data]="severityFilters"
+            (ruxchange)="onSeverityFilterChanged($any($event))"
+          ></rux-segmented-button>
+        </div>
 
-      <app-alert-list
-        [alerts]="filteredAlerts()"
-        (showDetails)="onShowDetails($event)"
-        (acknowledge)="onAcknowledge($event)"
-      ></app-alert-list>
+        <app-alert-list
+          [alerts]="filteredAlerts()"
+          (showDetails)="onShowDetails($event)"
+          (acknowledge)="onAcknowledge($event)"
+        ></app-alert-list>
+      </div>
     }
   </div>
 </rux-container>
