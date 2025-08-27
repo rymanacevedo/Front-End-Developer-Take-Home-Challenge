@@ -21,7 +21,7 @@
   <header slot="header">
     Alert Details
   </header>
-  <main slot="body" *ngIf="selectedAlert">
+  <main *ngIf="selectedAlert">
     <p><strong>Satellite:</strong> {{ selectedAlert.contactSatellite }}</p>
     <p><strong>Detail:</strong> {{ selectedAlert.contactDetail }}</p>
   </main>
