@@ -7,7 +7,7 @@
         <rux-progress [value]="progress$ | async"></rux-progress>
       </div>
     } @else if (error$ | async; as error) {
-      <rux-notification status="critical" [message]="error"></rux-notification>
+      <rux-notification status="critical" [message]="error" open="true"></rux-notification>
     } @else {
       <div class="filter-controls">
         <rux-segmented-button
