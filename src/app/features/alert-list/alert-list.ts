@@ -1,7 +1,7 @@
-import { Component, Input, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AlertViewModel } from '../../core/models/alert-view.model';
-import { FormatTimestampPipe } from '../../shared/pipes/format-timestamp.pipe';
+import { Component, Input, Output, EventEmitter, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import type { AlertViewModel } from '../../core/models/alert-view.model'
+import { FormatTimestampPipe } from '../../shared/pipes/format-timestamp.pipe'
 
 @Component({
   selector: 'app-alert-list',
@@ -12,5 +12,6 @@ import { FormatTimestampPipe } from '../../shared/pipes/format-timestamp.pipe';
   styleUrls: ['./alert-list.css'],
 })
 export class AlertListComponent {
-  @Input() alerts: AlertViewModel[] = [];
+  @Input() alerts: AlertViewModel[] = []
+  @Output() showDetails = new EventEmitter<AlertViewModel>()
 }

@@ -66,5 +66,3 @@ export interface RawContact {
   contactResolutionStatus: string
   alerts: RawAlert[]
 }
-
-

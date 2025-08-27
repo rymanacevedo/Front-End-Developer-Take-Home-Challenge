@@ -1,1 +1,14 @@
-<app-alert-list [alerts]="currentAlerts"></app-alert-list>
+<app-alert-list [alerts]="currentAlerts" (showDetails)="onShowDetails($event)"></app-alert-list>
+
+<rux-dialog #detailsDialog [open]="dialogOpen" (rux-dialog-closed)="onDialogClosed()">
+  <header slot="header">
+    Alert Details
+  </header>
+  <main slot="body" *ngIf="selectedAlert">
+    <p><strong>Satellite:</strong> {{ selectedAlert.contactSatellite }}</p>
+    <p><strong>Detail:</strong> {{ selectedAlert.contactDetail }}</p>
+  </main>
+  <footer slot="footer">
+    <rux-button (click)="onDialogClosed()">Close</rux-button>
+  </footer>
+</rux-dialog>

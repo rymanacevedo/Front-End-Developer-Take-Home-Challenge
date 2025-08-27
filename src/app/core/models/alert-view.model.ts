@@ -1,4 +1,4 @@
-import { AlertSeverity } from './alert.model'
+import type { AlertSeverity } from './alert.model'
 
 /**
  * A flattened view model for an alert, designed for the UI.
