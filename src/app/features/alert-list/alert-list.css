@@ -5,3 +5,7 @@ rux-table-row[acknowledged='true'] {
 rux-table-row[acknowledged='true'] > rux-table-cell:not(:last-child) {
   opacity: 0.6;
 }
+
+rux-table-cell {
+  padding: 1rem 0.5rem;
+}
