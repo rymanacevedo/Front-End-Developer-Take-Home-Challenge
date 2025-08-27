@@ -1,4 +1,4 @@
-import { Component, type OnInit, CUSTOM_ELEMENTS_SCHEMA, signal, WritableSignal } from '@angular/core';
+import { Component, type OnInit, CUSTOM_ELEMENTS_SCHEMA, signal, WritableSignal, computed } from '@angular/core';
 import { AlertService } from '../../core/services/alert.service';
 import type { AlertViewModel } from '../../core/models/alert-view.model';
 import { CommonModule } from '@angular/common';
@@ -16,6 +16,23 @@ export class DashboardComponent implements OnInit {
   currentAlerts: WritableSignal<AlertViewModel[]> = signal([]);
   selectedAlert: AlertViewModel | null = null;
   dialogOpen = false;
+
+  severityFilters = [
+    { label: 'All', value: 'All' },
+    { label: 'Critical', value: 'Critical' },
+    { label: 'Warning', value: 'Warning' },
+    { label: 'Info', value: 'Info' },
+  ];
+  selectedSeverity = signal('All');
+
+  filteredAlerts = computed(() => {
+    const severity = this.selectedSeverity();
+    const alerts = this.currentAlerts();
+    if (severity === 'All') {
+      return alerts;
+    }
+    return alerts.filter((alert) => alert.errorSeverity === severity);
+  });
 
   constructor(private alertService: AlertService) {}
 
@@ -44,5 +61,10 @@ export class DashboardComponent implements OnInit {
 
   onAcknowledge(errorId: string): void {
     this.alertService.acknowledgeAlert(errorId);
+  }
+
+  onSeverityFilterChanged(event: CustomEvent<any>): void {
+    const selectedFilter = event.detail;
+    this.selectedSeverity.set(selectedFilter);
   }
 }
