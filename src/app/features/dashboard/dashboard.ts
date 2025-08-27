@@ -3,6 +3,16 @@ import { AlertService } from '../../core/services/alert.service';
 import type { AlertViewModel } from '../../core/models/alert-view.model';
 import { CommonModule } from '@angular/common';
 import { AlertListComponent } from '../alert-list/alert-list';
+import { AlertSeverity, AlertSeverityObject } from './../../core/models/alert.model';
+
+// Helper function to capitalize the first letter of a string
+const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+
+// Create a const array to hold all possible severity values.
+// This ensures that if the AlertSeverity type changes, TypeScript will enforce an update here.
+
+
+const ALL_SEVERITIES: AlertSeverity[] = Object.values(AlertSeverityObject)
 
 @Component({
   selector: 'app-dashboard',
@@ -17,12 +27,13 @@ export class DashboardComponent implements OnInit {
   selectedAlert: AlertViewModel | null = null;
   dialogOpen = false;
 
+  // Dynamically generate the filters from our typed array
   severityFilters = [
     { label: 'All', value: 'All' },
-    { label: 'Critical', value: 'critical' },
-    { label: 'Serious', value: 'serious' },
-    { label: 'Warning', value: 'warning' },
-    { label: 'Caution', value: 'caution' },
+    ...ALL_SEVERITIES.map(severity => ({
+      label: capitalize(severity),
+      value: severity,
+    })),
   ];
   selectedSeverity = signal('All');
 
