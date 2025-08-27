@@ -1,4 +1,4 @@
-<app-alert-list [alerts]="currentAlerts" (showDetails)="onShowDetails($event)"></app-alert-list>
+<app-alert-list [alerts]="currentAlerts()" (showDetails)="onShowDetails($event)"></app-alert-list>
 
 <rux-dialog #detailsDialog [open]="dialogOpen" (rux-dialog-closed)="onDialogClosed()">
   <header slot="header">
