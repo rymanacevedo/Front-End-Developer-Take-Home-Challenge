@@ -5,3 +5,11 @@
 .filter-controls {
   padding-bottom: 1rem;
 }
+
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+}

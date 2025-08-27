@@ -2,18 +2,26 @@
   <header slot="header">GRM Alert Dashboard</header>
 
   <div class="dashboard-content">
-    <div class="filter-controls">
-      <rux-segmented-button
-        [data]="severityFilters"
-        (ruxchange)="onSeverityFilterChanged($any($event))"
-      ></rux-segmented-button>
-    </div>
+    @if (loading$ | async) {
+      <div class="loading-indicator">
+        <rux-progress [value]="progress$ | async"></rux-progress>
+      </div>
+    } @else if (error$ | async; as error) {
+      <rux-notification status="critical" [message]="error"></rux-notification>
+    } @else {
+      <div class="filter-controls">
+        <rux-segmented-button
+          [data]="severityFilters"
+          (ruxchange)="onSeverityFilterChanged($any($event))"
+        ></rux-segmented-button>
+      </div>
 
-    <app-alert-list
-      [alerts]="filteredAlerts()"
-      (showDetails)="onShowDetails($event)"
-      (acknowledge)="onAcknowledge($event)"
-    ></app-alert-list>
+      <app-alert-list
+        [alerts]="filteredAlerts()"
+        (showDetails)="onShowDetails($event)"
+        (acknowledge)="onAcknowledge($event)"
+      ></app-alert-list>
+    }
   </div>
 </rux-container>
 
@@ -21,9 +29,11 @@
   <header slot="header">
     Alert Details
   </header>
-  <main *ngIf="selectedAlert">
-    <p><strong>Satellite:</strong> {{ selectedAlert.contactSatellite }}</p>
-    <p><strong>Detail:</strong> {{ selectedAlert.contactDetail }}</p>
+  <main>
+    @if (selectedAlert) {
+      <p><strong>Satellite:</strong> {{ selectedAlert.contactSatellite }}</p>
+      <p><strong>Detail:</strong> {{ selectedAlert.contactDetail }}</p>
+    }
   </main>
   <footer slot="footer">
     <rux-button (click)="onDialogClosed()">Close</rux-button>

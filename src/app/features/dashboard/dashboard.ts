@@ -4,6 +4,7 @@ import type { AlertViewModel } from '../../core/models/alert-view.model';
 import { CommonModule } from '@angular/common';
 import { AlertListComponent } from '../alert-list/alert-list';
 import { AlertSeverity, AlertSeverityObject } from './../../core/models/alert.model';
+import { Observable } from 'rxjs';
 
 // Helper function to capitalize the first letter of a string
 const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
@@ -26,6 +27,9 @@ export class DashboardComponent implements OnInit {
   currentAlerts: WritableSignal<AlertViewModel[]> = signal([]);
   selectedAlert: AlertViewModel | null = null;
   dialogOpen = false;
+  loading$: Observable<boolean>;
+  error$: Observable<string | null>;
+  progress$: Observable<number>;
 
   // Dynamically generate the filters from our typed array
   severityFilters = [
@@ -46,7 +50,11 @@ export class DashboardComponent implements OnInit {
     return alerts.filter((alert) => alert.errorSeverity === severity);
   });
 
-  constructor(private alertService: AlertService) {}
+  constructor(private alertService: AlertService) {
+    this.loading$ = this.alertService.loading$;
+    this.error$ = this.alertService.error$;
+    this.progress$ = this.alertService.progress$;
+  }
 
   ngOnInit(): void {
     this.alertService.getAlerts().subscribe({
