@@ -14,4 +14,5 @@ import { FormatTimestampPipe } from '../../shared/pipes/format-timestamp.pipe'
 export class AlertListComponent {
   @Input() alerts: AlertViewModel[] = []
   @Output() showDetails = new EventEmitter<AlertViewModel>()
+  @Output() acknowledge = new EventEmitter<string>()
 }

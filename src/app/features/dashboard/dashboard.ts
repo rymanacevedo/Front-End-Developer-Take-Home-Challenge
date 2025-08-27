@@ -41,4 +41,8 @@ export class DashboardComponent implements OnInit {
     this.dialogOpen = false;
     this.selectedAlert = null;
   }
+
+  onAcknowledge(errorId: string): void {
+    this.alertService.acknowledgeAlert(errorId);
+  }
 }

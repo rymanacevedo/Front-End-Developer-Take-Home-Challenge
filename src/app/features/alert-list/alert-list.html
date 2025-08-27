@@ -4,6 +4,7 @@
       <rux-table-header-cell>Error Message</rux-table-header-cell>
       <rux-table-header-cell>Contact Name</rux-table-header-cell>
       <rux-table-header-cell>Contact Time</rux-table-header-cell>
+      <rux-table-header-cell>Acknowledged</rux-table-header-cell>
       <rux-table-header-cell>Actions</rux-table-header-cell>
     </rux-table-header-row>
   </rux-table-header>
@@ -13,6 +14,14 @@
       <rux-table-cell>{{ alert.contactName }}</rux-table-cell>
       <rux-table-cell>
         {{ alert.contactBeginTimestamp | formatTimestamp }} - {{ alert.contactEndTimestamp | formatTimestamp }}
+      </rux-table-cell>
+      <rux-table-cell>
+        <rux-button
+          [disabled]="alert.acknowledged"
+          (click)="acknowledge.emit(alert.errorId)"
+        >
+          {{ alert.acknowledged ? 'Acknowledged' : 'Acknowledge' }}
+        </rux-button>
       </rux-table-cell>
       <rux-table-cell>
         <rux-button (click)="showDetails.emit(alert)">Show Details</rux-button>
