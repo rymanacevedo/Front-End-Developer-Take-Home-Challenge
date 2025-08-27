@@ -8,8 +8,13 @@
 
 .loading-indicator {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
   padding: 2rem;
+}
+
+rux-progress {
+  width: 100%;
 }
