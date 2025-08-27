@@ -37,24 +37,28 @@ This is an Angular application built to present Ground Resources Management (GRM
 ### 2.3 Development Workflow
 
 1.  **Start the Development Server:**
+   This is ran in another terminal. No need to run.
     ```bash
     bun start
     ```
     This will serve the application at `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 2.  **Build for Production:**
+   No need to run.
     ```bash
     bun run build
     ```
     This command builds the project, typically for deployment. The build artifacts will be stored in the `dist/` directory.
 
 3.  **Watch for Changes (Development Build):**
+   No need to run.
     ```bash
     bun run watch
     ```
     This command watches files for changes and performs a development build, similar to `ng serve` but without a development server.
 
 4.  **Run Tests:**
+   No need to run.
     ```bash
     bun test
     ```
@@ -96,6 +100,30 @@ Consistency in naming is crucial for readability and maintainability.
     *   Directives: `[DirectiveName]Directive`
 
 ## 5. Angular Best Practices
+
+### 5.0 Control Flow
+
+* **Modern Control Flow:** Use new built-in control flow syntax instead of structural directives.
+  * Use `@if` instead of `*ngIf`
+  * Use `@for` instead of `*ngFor`
+  * Use `@switch` instead of `[ngSwitch]`
+  * Use `@empty` as fallback in `@for` loops
+  * Use `@defer` for lazy loading template content
+
+Examples:
+```typescript
+// Modern Control Flow
+@for (item of items; track item.id) {
+  <div>{{ item.name }}</div>
+}
+
+@if (condition) {
+  <div>Shown when true</div>
+} @else {
+  <div>Shown when false</div>
+}
+```
+
 
 ### 5.1 Components
 
