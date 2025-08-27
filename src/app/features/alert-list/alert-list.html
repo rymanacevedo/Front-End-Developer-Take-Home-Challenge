@@ -9,7 +9,10 @@
     </rux-table-header-row>
   </rux-table-header>
   <rux-table-body>
-    <rux-table-row *ngFor="let alert of alerts">
+    <rux-table-row
+        *ngFor="let alert of alerts"
+        [attr.acknowledged]="alert.acknowledged ? 'true' : 'false'"
+      >
       <rux-table-cell>{{ alert.errorMessage }}</rux-table-cell>
       <rux-table-cell>{{ alert.contactName }}</rux-table-cell>
       <rux-table-cell>
