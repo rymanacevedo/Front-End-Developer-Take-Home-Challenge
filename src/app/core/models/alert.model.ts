@@ -23,7 +23,7 @@
  * Represents the severity level of an alert.
  * Based on the unique values observed in `data.json`.
  */
-export type AlertSeverity = 'critical' | 'serious' | 'warning' | 'caution' | 'info'
+export type AlertSeverity = 'critical' | 'serious' | 'warning' | 'caution'
 
 /**
  * Interface for a raw alert object, as received from the data source.
