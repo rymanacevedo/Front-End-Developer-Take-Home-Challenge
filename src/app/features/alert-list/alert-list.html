@@ -1,0 +1,18 @@
+<rux-table>
+  <rux-table-header>
+    <rux-table-header-row>
+      <rux-table-header-cell>Error Message</rux-table-header-cell>
+      <rux-table-header-cell>Contact Name</rux-table-header-cell>
+      <rux-table-header-cell>Contact Time</rux-table-header-cell>
+    </rux-table-header-row>
+  </rux-table-header>
+  <rux-table-body>
+    <rux-table-row *ngFor="let alert of alerts">
+      <rux-table-cell>{{ alert.errorMessage }}</rux-table-cell>
+      <rux-table-cell>{{ alert.contactName }}</rux-table-cell>
+      <rux-table-cell>
+        {{ alert.contactBeginTimestamp | formatTimestamp }} - {{ alert.contactEndTimestamp | formatTimestamp }}
+      </rux-table-cell>
+    </rux-table-row>
+  </rux-table-body>
+</rux-table>
