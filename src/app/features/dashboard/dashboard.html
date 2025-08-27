@@ -1,7 +1,7 @@
 <div class="filter-controls">
   <rux-segmented-button
     [data]="severityFilters"
-    (rux-change)="onSeverityFilterChanged($any($event))"
+    (ruxchange)="onSeverityFilterChanged($any($event))"
   ></rux-segmented-button>
 </div>
 
@@ -17,8 +17,8 @@
     Alert Details
   </header>
   <main slot="body" *ngIf="selectedAlert">
-    <p><strong>Satellite:</strong> {{ selectedAlert?.contactSatellite }}</p>
-    <p><strong>Detail:</strong> {{ selectedAlert?.contactDetail }}</p>
+    <p><strong>Satellite:</strong> {{ selectedAlert.contactSatellite }}</p>
+    <p><strong>Detail:</strong> {{ selectedAlert.contactDetail }}</p>
   </main>
   <footer slot="footer">
     <rux-button (click)="onDialogClosed()">Close</rux-button>

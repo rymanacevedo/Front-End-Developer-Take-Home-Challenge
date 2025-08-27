@@ -19,9 +19,10 @@ export class DashboardComponent implements OnInit {
 
   severityFilters = [
     { label: 'All', value: 'All' },
-    { label: 'Critical', value: 'Critical' },
-    { label: 'Warning', value: 'Warning' },
-    { label: 'Info', value: 'Info' },
+    { label: 'Critical', value: 'critical' },
+    { label: 'Serious', value: 'serious' },
+    { label: 'Warning', value: 'warning' },
+    { label: 'Caution', value: 'caution' },
   ];
   selectedSeverity = signal('All');
 
@@ -63,8 +64,14 @@ export class DashboardComponent implements OnInit {
     this.alertService.acknowledgeAlert(errorId);
   }
 
-  onSeverityFilterChanged(event: CustomEvent<any>): void {
-    const selectedFilter = event.detail;
-    this.selectedSeverity.set(selectedFilter);
+  onSeverityFilterChanged(event: CustomEvent<string>): void {
+    const selectedLabel = event.detail;
+    // Find the filter object that matches the selected label
+    const selectedFilter = this.severityFilters.find(f => f.label === selectedLabel);
+
+    if (selectedFilter) {
+      // Set the signal to the corresponding 'value'
+      this.selectedSeverity.set(selectedFilter.value);
+    }
   }
 }
