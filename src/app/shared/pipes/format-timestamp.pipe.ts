@@ -11,7 +11,7 @@ export class FormatTimestampPipe implements PipeTransform {
     }
 
     const date = new Date(value * 1000)
-    const pad = (num: number) => (num < 10 ? '0' + num : num)
+    const pad = (num: number) => (num < 10 ? `0${num}` : num)
 
     return (
       `${pad(date.getMonth() + 1)}/${pad(date.getDate())}/${date.getFullYear()} ` +

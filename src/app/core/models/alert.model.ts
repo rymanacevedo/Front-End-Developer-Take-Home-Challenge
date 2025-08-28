@@ -24,14 +24,13 @@ export const AlertSeverityObject = {
   serious: 'serious',
   warning: 'warning',
   caution: 'caution',
-} as const;
-
+} as const
 
 /**
  * Represents the severity level of an alert.
  * Based on the unique values observed in `data.json`.
  */
-export type AlertSeverity = keyof typeof AlertSeverityObject;
+export type AlertSeverity = keyof typeof AlertSeverityObject
 
 /**
  * Interface for a raw alert object, as received from the data source.

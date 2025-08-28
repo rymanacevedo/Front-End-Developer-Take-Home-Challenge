@@ -1,8 +1,8 @@
-rux-table-row[acknowledged='true'] {
+rux-table-row[acknowledged="true"] {
   background-color: var(--rux-color-base-grey-700);
 }
 
-rux-table-row[acknowledged='true'] > rux-table-cell:not(:last-child) {
+rux-table-row[acknowledged="true"] > rux-table-cell:not(:last-child) {
   opacity: 0.6;
 }
 
