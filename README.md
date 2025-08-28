@@ -1,59 +1,51 @@
-# BunXAngular
+# GRM Operator Dashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.0.
+This project is a take-home challenge to create a dashboard for Ground Resources Management (GRM) operators to view and manage satellite contact alerts. The dashboard is built with Angular and the Astro UX Design System.
 
-## Development server
+## Core Features
 
-To start a local development server, run:
+- **Alert Display**: Each alert shows the message, contact name, and contact time.
+- **Alert Details**: A "Show Details" button on each alert opens a dialog with more information.
+- **Sorting**: Alerts are sorted by time, with the most recent at the top.
+- **Acknowledgement**:
+  - Unacknowledged alerts can be acknowledged.
+  - Acknowledged alerts are visually distinct.
+  - Acknowledged alerts cannot be unacknowledged.
+- **Severity Filtering**: Alerts can be filtered by severity (Critical, Serious, Warning, Normal, Off-Nominal).
 
-```bash
-ng serve
-```
+## Technical Requirements
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Framework**: Angular
+- **Component Library**: Astro UX Design System
+- **Package Manager**: bun
 
-## Code scaffolding
+## Getting Started
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Prerequisites
 
-```bash
-ng generate component component-name
-```
+- **Node.js**: Latest LTS version recommended.
+- **Angular CLI**: `bun install -g @angular/cli`
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Setup
 
-```bash
-ng generate --help
-```
+1.  **Fork and Clone**: Fork this repository and clone it to your local machine.
+2.  **Install Dependencies**:
+    ```bash
+    bun install
+    ```
 
-## Building
+### Development Server
 
-To build the project run:
+1.  **Start the server**:
+    ```bash
+    bun start
+    ```
+2.  **Open in browser**: Navigate to `http://localhost:4200/`.
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+## Building the Project
 
 ```bash
-ng e2e
+bun run build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The build artifacts will be stored in the `dist/` directory.
